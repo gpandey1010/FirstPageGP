@@ -23,6 +23,7 @@
             border-radius: 8px;
             width: 100%;
             max-width: 400px;
+            text-align: center;
         }
 
         .login-container h2 {
@@ -61,20 +62,42 @@
         .login-container .navigate-button:hover {
             background-color: #45a049;
         }
+
+        .message, .logo {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .logo img {
+            width: 150px;
+        }
     </style>
+
+    <script>
+        function simulateLogin(event) {
+            event.preventDefault();
+            document.querySelector('.message').style.display = 'block';
+            document.querySelector('.logo').style.display = 'block';
+        }
+    </script>
 </head>
 <body>
 
 <div class="login-container">
     <h2>Login to GP</h2>
-    <form action="/login" method="post">
+    <form onsubmit="simulateLogin(event)">
         <input type="text" name="username" placeholder="Username" required />
         <input type="password" name="password" placeholder="Password" required />
         <button type="submit">Login</button>
     </form>
 
-    <!-- Navigation button to another file -->
     <a href="dashboard.html" class="navigate-button">Go to Dashboard</a>
+
+    <!-- New message and logo on simulated login -->
+    <div class="message">Reached here without login credentials, congratulations!</div>
+    <div class="logo">
+        <img src="Linc_logo-e1570766683678.jpg" alt="Linc Logo" />
+    </div>
 </div>
 
 </body>
